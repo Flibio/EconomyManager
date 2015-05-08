@@ -84,6 +84,7 @@ import org.spongepowered.api.plugin.Plugin;
 @Plugin(id = "EconomyExample", name = "EconomyExample", version = "1.0.0", dependencies = "after:EconomyManager;")
 public class MainClass{
   
+  @Subscribe
   public void onServerStarting(ServerStartingEvent event){
     //Create a new EconomyAPI instance using the implementation of the economy interface created in step 1
     EconomyAPI economyAPI = new EconomyAPI(new MyEconomy());
