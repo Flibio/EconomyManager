@@ -1,6 +1,6 @@
 # EconomyManager
 
-EconomyManager downloads will be coming soon. Documentation is currently being written and after it is complete, downloads will be released.
+[Download the latest version of EconomyManager here](https://github.com/Flibio/EconomyManager/releases)
 
 ####Implementing EconomyManager - For your economy plugin
 
