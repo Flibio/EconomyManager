@@ -1,5 +1,7 @@
 # EconomyManager
 
+EconomyManager downloads will be coming soon. Documentation currently being written and after it is complete, downloads will be released.
+
 ####Implementing EconomyManager - For your economy plugin
 
 Implementing EconomyManager into your new or existing economy plugin is simple and easy to do. Just follow the two simple steps and example below to learn how. Have any questions? Submit them [here](https://github.com/Flibio/EconomyManager/issues/new) and select question as the label.
@@ -95,3 +97,8 @@ public class MainClass{
 }
 
 ```
+
+
+####Implementing EconomyManager - Using a registered economy
+
+Tutorial coming soon
