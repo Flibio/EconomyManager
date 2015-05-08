@@ -9,6 +9,8 @@ import me.Flibio.EconomyManager.Economy;
 import me.Flibio.EconomyManager.EconomyAPI;
 
 import org.spongepowered.api.event.Subscribe;
+import org.spongepowered.api.event.state.ServerStartingEvent;
+import org.spongepowered.api.plugin.Plugin;
 
 //!!!!!IMPORTANT!!!!! Make sure you include EconomyManager as a load after dependency in your plugin annotation
 @Plugin(id = "EconomyExample", name = "EconomyExample", version = "1.0.0", dependencies = "after:EconomyManager;")
