@@ -1,6 +1,6 @@
 # EconomyManager
 
-EconomyManager downloads will be coming soon. Documentation currently being written and after it is complete, downloads will be released.
+EconomyManager downloads will be coming soon. Documentation is currently being written and after it is complete, downloads will be released.
 
 ####Implementing EconomyManager - For your economy plugin
 
