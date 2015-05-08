@@ -88,10 +88,10 @@ public class MainClass{
   
   @Subscribe
   public void onServerStarting(ServerStartingEvent event){
-    //Create a new EconomyAPI instance using the implementation of the economy interface created in step 1
-    EconomyAPI economyAPI = new EconomyAPI(new MyEconomy());
-    //Register the economy as the server's economy - EconomyManager will handle all logging and errors
-    economyAPI.registerEconomy();
+    //Create a new EconomyAPI instance
+    EconomyAPI economyAPI = new EconomyAPI();
+    //Register your economy as the server's economy - EconomyManager will handle all logging and errors
+    economyAPI.registerEconomy(new MyEconomy());
   }
   
 }
