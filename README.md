@@ -1,6 +1,74 @@
 # EconomyManager
 
-####Implementing EconomyManager - EconomyManager for your economy plugin
+####Implementing EconomyManager - For your economy plugin
+
+Implementing EconomyManager into your new or existing economy plugin is simple and easy to do. Just follow the two simple steps and example below to learn how. Have any questions? Submit them [here](https://github.com/Flibio/EconomyManager/issues/new) and select question as the label.
+
+**Step 1:** Creating an instance of the Economy interface
+
+```java
+
+  package example.economy;
+  
+  import me.Flibo.EconomyManager.Economy;
+  import me.Flibo.EconomyManager.EconomyResponse;
+  
+  public class Example implements Economy{
+  
+  	@Override
+  	public String getEconomyName() {
+  		//Name of your economy plugin
+  		return "Economy Example";
+  	}
+  
+  	@Override
+  	public String currencyNameSingular() {
+  		//Name of your plugin's currency (singular)
+  		return "Coin";
+  	}
+  
+  	@Override
+  	public String currencyNamePlural() {
+  		//Name of your plugin's currency (plural)
+  		return "Coins";
+  	}
+  
+  	@Override
+  	public EconomyResponse setBalance(String playerName, double balance) {
+  		//Sets the balance of a player to the specified amount
+  		//Returns if it was successful or failed
+  		return EconomyResponse.SUCCESS;
+  	}
+  
+  	@Override
+  	public double getBalance(String name) {
+  		//Returns the balance of the specified player
+  		return 0;
+  	}
+  
+  	@Override
+  	public EconomyResponse addCurrency(String name, double amount) {
+  		//Adds the specified amount of currency to the specified player's balance
+  		return EconomyResponse.SUCCESS;
+  	}
+  
+  	@Override
+  	public EconomyResponse removeCurrency(String name, double amount) {
+  		//Subtracts the specified amount of currency from the specified player's balance
+  		return EconomyResponse.SUCCESS;
+  	}
+  
+  	@Override
+  	public boolean hasAccount(String name) {
+  		//Checks if the player has an account with your plugin
+  		return false;
+  	}
+  
+  }
+
+```
+
+**Step 2:** Registering your implementation of the Economy interface with EconomyManager
 
 ```java
 package example.economy;
@@ -19,7 +87,7 @@ public class MainClass{
   public void onServerStarting(ServerStartingEvent event){
     //Create a new EconomyAPI instance using the implementation of the economy interface created in step 1
     EconomyAPI economyAPI = new EconomyAPI(new MyEconomy());
-    //Register the economy as the servers economy - EconomyAPI will handle all logging and errors
+    //Register the economy as the server's economy - EconomyManager will handle all logging and errors
     economyAPI.registerEconomy();
   }
   
