@@ -137,7 +137,7 @@ public class MainClass{
 
 ```
 
-**Part 1:** Using the economy interface is other classes
+**Part 2:** Using the economy interface in other classes
 
 ```java
 package economy.example;
