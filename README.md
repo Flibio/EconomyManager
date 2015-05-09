@@ -82,10 +82,11 @@ import org.spongepowered.api.event.Subscribe;
 import org.spongepowered.api.event.state.ServerStartingEvent;
 import org.spongepowered.api.plugin.Plugin;
 
-//!!!!!IMPORTANT!!!!! Make sure you include EconomyManager as a load after dependency in your plugin annotation
-@Plugin(id = "EconomyExample", name = "EconomyExample", version = "1.0.0", dependencies = "after:EconomyManager;")
+//!!!!!IMPORTANT!!!!! Make sure you include EconomyManager as a required after dependency in your plugin annotation
+@Plugin(id = "EconomyExample", name = "EconomyExample", version = "1.0.0", dependencies = "required-after:EconomyManager;")
 public class MainClass{
   
+  //!!!IMPORTANT!!! Make sure you register your economy in the ServerStartingEvent, not the ServerStartedEvent
   @Subscribe
   public void onServerStarting(ServerStartingEvent event){
     //Create a new EconomyAPI instance
@@ -101,4 +102,57 @@ public class MainClass{
 
 ####Implementing EconomyManager - Using a registered economy
 
-Tutorial coming soon
+Implementing EconomyManager support into any plugin that uses an economy is easy to do.
+
+**Part 1:** Setting up the main class
+
+```java
+package economy.example;
+
+import me.Flibio.EconomyManager.EconomyAPI;
+
+import org.spongepowered.api.event.Subscribe;
+import org.spongepowered.api.event.state.ServerStartedEvent;
+import org.spongepowered.api.plugin.Plugin;
+
+//!!!!!IMPORTANT!!!!! Make sure you include EconomyManager as a required after dependency in your plugin annotation
+@Plugin(id = "EconomyExample", name = "EconomyExample", version = "1.0.0", dependencies = "required-after:EconomyManager;")
+public class MainClass{
+  
+  //!!!IMPORTANT!!! Make sure you test for an economy in the ServerStartedEvent, not the ServerStartingEvent
+  @Subscribe
+  public void serverStarted(ServerStartedEvent event){
+    //If an economy is optional for your plugin, skip this step
+    
+    //Get a new instance of the EconomyAPI
+    EconomyAPI economyAPI = new EconomyAPI();
+    //Check if an economy doesn't exists
+    if(!economyAPI.economyRegistered()){
+      //TODO: Send an error to the console that no economy could be found and one is required
+    }
+    
+  }
+  
+}
+
+```
+
+**Part 1:** Using the economy interface is other classes
+
+```java
+package economy.example;
+
+public class UseClass{
+  
+  public void resetBalance(String name){
+    //Get the EconomyAPI
+    EconomyAPI economyAPI = new EconomyAPI();
+    //Get the Economy
+    Economy economy = economyAPI.getEconomy();
+    //Use any method found in the Economy interface
+    economy.setBalance(name, 0)
+  }
+  
+}
+
+```
