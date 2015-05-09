@@ -142,6 +142,9 @@ public class MainClass{
 ```java
 package economy.example;
 
+import me.Flibio.EconomyManager.EconomyAPI;
+import me.Flibio.EconomyManager.Economy;
+
 public class UseClass{
   
   public void resetBalance(String name){
